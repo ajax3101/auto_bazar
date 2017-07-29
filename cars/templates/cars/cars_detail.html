@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% load humanize %}
+
+{% block html_title %}
+    Машина {{ car.name }}
+{% endblock %}
+
+{% block application %}
+    <div class="car-detail">
+        <h2 class="car-name">{{ car.name }} <span class="price">{{ car.price|intcomma }} $.</span></h2>
+        <div class="car">
+            {% if car.photo %}
+                <img src="{{ car.photo.url }}" alt="{{ car.name }}">
+            {% endif %}
+
+            <div class="description">{{ car.description }}</div>
+        </div>
+
+        <div class="order">
+            <h2>Оставить заявку</h2>
+
+            {% if sended %}
+                Спасибо! Ваша заявка принята!
+            {% endif %}
+
+            <form action="" method="post" class="order-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Отправить заявку">
+            </form>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+{% endblock %}

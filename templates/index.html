@@ -1,0 +1,21 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block html_title %}
+            Авто Базар
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+</head>
+<body>
+{% include "header.html" %}
+{% block application %}
+
+{% endblock %}
+{% include "footer.html" %}
+</body>
+</html>
